@@ -1,0 +1,23 @@
+[package]
+edition = "2021"
+name = "cavalier_contours_bench"
+version = "0.1.0"
+
+[features]
+default = []
+# Enable unsafe optimizations
+unsafe_optimizations = ["cavalier_contours/unsafe_optimizations"]
+
+[dependencies]
+cavalier_contours = {version = "0.3", git = "https://github.com/jbuckmccready/cavalier_contours.git", branch = "master"}
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+harness = false
+name = "benchmarks"
+
+[lib]
+# eliminate issues with criterion command line args, see: https://bheisler.github.io/criterion.rs/book/faq.html
+bench = false
